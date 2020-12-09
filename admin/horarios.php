@@ -79,9 +79,13 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 			<input type="submit" value="Adicionar" class="btn btn-success mt-2 col-md-4">
 		</form>
 	</div>	
-</div>		
-<div style="overflow: auto"> 
-	<table class="table">
+</div>
+<?php
+	for ($i=0; $i < sizeof($dia_semana); $i++) {
+?>
+<h4><b><?php echo $dia_semana[$i]?></b></h4>		
+<div style="overflow: auto" class="mb-5"> 
+	<table class="table ">
 	  <thead>
 	    <tr>
 	      <th scope="col">Código</th>
@@ -96,7 +100,8 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 	  </thead>
 	  <tbody>
 	  	<?php
-	  		$sql = "SELECT horario.CODIGO, horario.DIA, usuario.NOME AS PROFESSOR, aula.NOME AS AULA, turma.NOME AS TURMA, materia.NOME AS MATERIA, CONCAT(horario.DIA, ' ', aula.CODIGO) AS ORDEM FROM horario INNER JOIN aula ON aula.CODIGO = horario.aula_CODIGO INNER JOIN materia ON materia.CODIGO = horario.materia_CODIGO INNER JOIN usuario ON usuario.CODIGO = materia.usuario_CODIGO INNER JOIN turma ON turma.CODIGO = materia.turma_CODIGO WHERE usuario.escola_CODIGO = $escola_codigo ORDER BY ORDEM ASC";
+	  		$dia = $i;
+	  		$sql = "SELECT horario.CODIGO, horario.DIA, usuario.NOME AS PROFESSOR, aula.NOME AS AULA, turma.NOME AS TURMA, materia.NOME AS MATERIA, CONCAT(horario.DIA, ' ', aula.CODIGO) AS ORDEM FROM horario INNER JOIN aula ON aula.CODIGO = horario.aula_CODIGO INNER JOIN materia ON materia.CODIGO = horario.materia_CODIGO INNER JOIN usuario ON usuario.CODIGO = materia.usuario_CODIGO INNER JOIN turma ON turma.CODIGO = materia.turma_CODIGO WHERE usuario.escola_CODIGO = $escola_codigo AND horario.DIA = $dia ORDER BY ORDEM ASC";
 	  		$query = mysqli_query($con, $sql);
 	  		if (mysqli_num_rows($query) > 0) {
 	  			while ($row = mysqli_fetch_array($query)) {
@@ -129,6 +134,9 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 	  </tbody>
 	</table>
 </div>
+<?php
+	}
+?>
 <script type="text/javascript">
 	function remover(codigo){
 		var confirm = window.confirm("Isto removerá este horário!");

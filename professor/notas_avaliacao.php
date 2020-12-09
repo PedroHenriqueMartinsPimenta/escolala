@@ -29,7 +29,19 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
 	  			?>
 					<tr>
 				      <th scope="row"><?php echo $row_notas['NOME'] . " " . $row_notas['SOBRENOME']?></th>
-				      <td><input type="text" name="nota" class="form-control" onchange="update(<?php echo $row_notas['CODIGO']?>, this)" value="<?php echo $row_notas['NOTA']?>"></td>
+				      <td>
+				      	<?php
+				      		if ($row_notas['NOTA'] > 10) {
+				      			?>
+				      				<input type="text" name="nota" class="form-control" onchange="update(<?php echo $row_notas['CODIGO']?>, this)" value="0">
+				      			<?php
+				      		}else{
+				      			?>
+				      				<input type="text" name="nota" class="form-control" onchange="update(<?php echo $row_notas['CODIGO']?>, this)" value="<?php echo $row_notas['NOTA']?>">
+				      			<?php
+				      		}
+				      	?>
+				      </td>
 				    </tr>
 	  			<?php
 	  		}

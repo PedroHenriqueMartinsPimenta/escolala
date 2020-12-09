@@ -78,7 +78,7 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
 	  		}else {
 	  			?>
 			    <tr>
-			      <th scope="row" colspan="3">Nenhuma aula cadastrada ainda!</th>
+			      <th scope="row" colspan="3">Nenhuma atividade cadastrada ainda!</th>
 			    </tr>
 
 	  			<?php

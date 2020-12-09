@@ -130,7 +130,7 @@
 					$m = "";
 					while ($row = mysqli_fetch_array($query)) {
 						$aluno = $row['CODIGO'];
-						$sql = "INSERT INTO avaliacao_has_usuario (usuario_CODIGO, avaliacao_CODIGO, NOTA) VALUES($aluno, $avaliacao_CODIGO, 0)";
+						$sql = "INSERT INTO avaliacao_has_usuario (usuario_CODIGO, avaliacao_CODIGO, NOTA) VALUES($aluno, $avaliacao_CODIGO, 20)";
 						$q = mysqli_query($con, $sql);
 						if (!$q) {
 							$m .= "<br>" . mysqli_error($con);

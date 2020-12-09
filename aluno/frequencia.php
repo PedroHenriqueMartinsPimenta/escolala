@@ -20,12 +20,12 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 0) {
 	  <tbody>
 	  	<?php
 	  		$ano = date('Y');
-	  		$sql = "SELECT COUNT(frequencia.CODIGO) AS PRESENCA, periodo.NOME, periodo.CODIGO AS PERIODO_CODIGO FROM frequencia INNER JOIN periodo ON frequencia.periodo_CODIGO = periodo.CODIGO WHERE frequencia.usuario_CODIGO = $user_codigo AND YEAR(frequencia.DATA) = $ano ORDER BY periodo.CODIGO ASC";
+	  		$sql = "SELECT COUNT(frequencia.CODIGO) AS PRESENCA, periodo.NOME, periodo.CODIGO AS PERIODO_CODIGO FROM frequencia INNER JOIN periodo ON frequencia.periodo_CODIGO = periodo.CODIGO WHERE frequencia.usuario_CODIGO = $user_codigo AND YEAR(frequencia.DATA) = $ano GROUP BY periodo.CODIGO ORDER BY periodo.CODIGO ASC";
 	  		$query = mysqli_query($con, $sql);
 	  		if (mysqli_num_rows($query) > 0) {
 	  			while ($row = mysqli_fetch_array($query)) {
 	  				$periodo_codigo = $row['PERIODO_CODIGO'];
-	  				$sql = "SELECT * FROM frequencia INNER JOIN usuario ON frequencia.usuario_CODIGO = usuario.CODIGO WHERE usuario.escola_CODIGO = $escola_codigo AND frequencia.periodo_CODIGO = $periodo_codigo GROUP BY frequencia.DATA";
+	  				$sql = "SELECT * FROM frequencia INNER JOIN usuario ON frequencia.usuario_CODIGO = usuario.CODIGO WHERE usuario.escola_CODIGO = $escola_codigo AND frequencia.periodo_CODIGO = $periodo_codigo GROUP BY CONCAT(frequencia.DATA, frequencia.aula_CODIGO)";
 	  				$query_count = mysqli_query($con, $sql);
 	  				$dias_letivos = mysqli_num_rows($query_count);
 	  				?>
