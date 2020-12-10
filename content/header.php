@@ -6,6 +6,11 @@
 <html lang="pt-BR" class="has-offscreen"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="keywords" content="escola online, sistema escola, sistema educacional, sistema para escolas, escolala, escola virtual, sua escola conectada, minha escola, minha escola online, escola online, escola virtual, escola digital, sistema escolar gratis, sistema escolar gratuito">
+    <meta name="description" content="O Escolalá é o sistema escolar gratuito mais completo do Brasil! com recursos imagináveis para a sua escola">
+    <meta name="google-site-verification" content="utSO2cyYEpUxP4YMXayqFIfuZnEOeOlfQ7hrK0NxNqg" />
+    
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
         <script>
@@ -56,8 +61,8 @@
 <link rel="stylesheet" type="text/css" href="<?php echo $url?>page/bootstrap.min.css">
 <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
 <link rel="dns-prefetch" href="http://s.w.org/">
-<link rel="alternate" type="application/rss+xml" title="Feed para Agendamento de equipamento »" href="http://localhost/diego/feed/">
-<link rel="alternate" type="application/rss+xml" title="Feed de comentários para Agendamento de equipamento »" href="http://localhost/diego/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Feed para Agendamento de equipamento »" href="<?php echo $url?>feed/">
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para Agendamento de equipamento »" href="<?php echo $url?>comments/feed/">
         <script type="text/javascript">
             window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/localhost\/diego\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.8"}};
             !function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
@@ -119,14 +124,14 @@ img.logo.dark, img.custom-logo{width:auto;max-height:70px !important;}
     
 </script>
 <script type="text/javascript" src="<?php echo $url?>page/jquery-migrate.min.js.download"></script>
-<link rel="https://api.w.org/" href="http://localhost/diego/wp-json/">
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://localhost/diego/xmlrpc.php?rsd">
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://localhost/diego/wp-includes/wlwmanifest.xml"> 
+<link rel="https://api.w.org/" href="<?php echo $url?>wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="<?php echo $url?>xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="<?php echo $url?>wp-includes/wlwmanifest.xml"> 
 <meta name="generator" content="WordPress 4.9.8">
-<link rel="canonical" href="http://localhost/diego/agendamentos/">
-<link rel="shortlink" href="http://localhost/diego/?p=103">
-<link rel="alternate" type="application/json+oembed" href="http://localhost/diego/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fdiego%2Fagendamentos%2F">
-<link rel="alternate" type="text/xml+oembed" href="http://localhost/diego/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fdiego%2Fagendamentos%2F&amp;format=xml">
+<link rel="canonical" href="<?php echo $url?>">
+<link rel="shortlink" href="<?php echo $url?>?p=103">
+<link rel="alternate" type="application/json+oembed" href="<?php echo $url?>wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fdiego%2Fagendamentos%2F">
+<link rel="alternate" type="text/xml+oembed" href="<?php echo $url?>wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fdiego%2Fagendamentos%2F&amp;format=xml">
         <style data-name="header-gradient-overlay">
             .header .background-overlay {
                 background: linear-gradient(135deg , rgba(153,21,153, 0.8) 0%, rgba(153,61,133, 0.8) 100%);

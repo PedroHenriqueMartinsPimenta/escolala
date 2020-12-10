@@ -23,7 +23,7 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 0) {
 	  <tbody>
 	  	<?php
 	  		$data = date('Y-m-d');
-	  		$sql = "SELECT avaliacao.CODIGO, avaliacao.NOME, avaliacao.PESO, avaliacao.TIPO, periodo.FIM, materia.NOME AS MATERIA FROM avaliacao INNER JOIN periodo ON avaliacao.periodo_CODIGO = periodo.CODIGO INNER JOIN materia ON materia.CODIGO = avaliacao.materia_CODIGO INNER JOIN turma ON materia.turma_CODIGO = turma.CODIGO INNER JOIN usuario_has_turma ON usuario_has_turma.turma_CODIGO = turma.CODIGO WHERE usuario_has_turma.usuario_CODIGO = $user_codigo AND periodo.FIM >= '$data' GROUP BY avaliacao.CODIGO ORDER BY CONCAT(avaliacao.TIPO, avaliacao.CODIGO) DESC";
+	  		$sql = "SELECT avaliacao.CODIGO, avaliacao.NOME, avaliacao.PESO, avaliacao.TIPO, periodo.FIM, materia.NOME AS MATERIA FROM avaliacao INNER JOIN periodo ON avaliacao.periodo_CODIGO = periodo.CODIGO INNER JOIN materia ON materia.CODIGO = avaliacao.materia_CODIGO INNER JOIN turma ON materia.turma_CODIGO = turma.CODIGO INNER JOIN usuario_has_turma ON usuario_has_turma.turma_CODIGO = turma.CODIGO WHERE usuario_has_turma.usuario_CODIGO = $user_codigo AND periodo.FIM >= '$data' AND (avaliacao.ATIVA = 1 OR avaliacao.TIPO = 0) GROUP BY avaliacao.CODIGO ORDER BY CONCAT(avaliacao.TIPO, avaliacao.CODIGO) DESC";
 	  		$query = mysqli_query($con, $sql);
 	  		echo mysqli_error($con);
 	  		if (mysqli_num_rows($query) > 0) {

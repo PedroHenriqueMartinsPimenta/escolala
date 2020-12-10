@@ -14,7 +14,7 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 </div>
 <div class="row" style="display: none" id="model"> 
 	<div class="col-12"> 
-		<form action="../controller/Aulas.php?id=1" method="post"> 
+		<form action="../controller/aulas.php?id=1" method="post"> 
 			<label>Nome da aula:<span id="required">*</span></label>
 			<input type="text" name="nome" class="form-control" required>
 			

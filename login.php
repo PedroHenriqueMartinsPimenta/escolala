@@ -3,11 +3,6 @@
 	$page = "Login";
 	include_once('content/banner.php');
 ?>
-<style type="text/css">
-	a{
-		float: right;
-	}
-</style>
 	<div class="row" id="login">
 		<div class="col-md-12">
 			<form action="controller/login.php" method="post">
@@ -19,7 +14,7 @@
 				<label>Senha</label>
 				<input type="password" name="senha" class="form-control" required placeholder="Senha">
 
-				<a href="minha_senha.php">Esqueci minha senha!</a>
+				<a href="minha_senha.php" style="float: right;">Esqueci minha senha!</a>
 
 				<button type="submit" class="btn btn-success col-md-3 mt-2">Entrar</button>
 			</form>

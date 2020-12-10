@@ -25,21 +25,21 @@
 				$row = mysqli_fetch_array($query);
 				$aviso_codigo = $row['CODIGO'];
 				if ($destinatario == 0) {
-					$sql = "SELECT usuario.CODIGO FROM usuario WHERE escola_CODIGO = $escola_codigo";
+					$sql = "SELECT usuario.CODIGO, usuario.EMAIL, usuario.EMAIL_SECUNDARIO FROM usuario WHERE escola_CODIGO = $escola_codigo";
 				}else if($destinatario == 1){
-					$sql = "SELECT usuario.CODIGO FROM usuario WHERE escola_CODIGO = $escola_codigo AND PERMISSAO = 2";
+					$sql = "SELECT usuario.CODIGO, usuario.EMAIL, usuario.EMAIL_SECUNDARIO FROM usuario WHERE escola_CODIGO = $escola_codigo AND PERMISSAO = 2";
 				}else if($destinatario == 2){
-					$sql = "SELECT usuario.CODIGO FROM usuario WHERE escola_CODIGO = $escola_codigo AND PERMISSAO = 1";
+					$sql = "SELECT usuario.CODIGO, usuario.EMAIL, usuario.EMAIL_SECUNDARIO FROM usuario WHERE escola_CODIGO = $escola_codigo AND PERMISSAO = 1";
 				}else if($destinatario == 3){
-					$sql = "SELECT usuario.CODIGO FROM usuario WHERE escola_CODIGO = $escola_codigo AND (PERMISSAO = 1 OR PERMISSAO = 2)";
+					$sql = "SELECT usuario.CODIGO, usuario.EMAIL, usuario.EMAIL_SECUNDARIO FROM usuario WHERE escola_CODIGO = $escola_codigo AND (PERMISSAO = 1 OR PERMISSAO = 2)";
 				}else if($destinatario == 4){
-					$sql = "SELECT usuario.CODIGO FROM usuario WHERE escola_CODIGO = $escola_codigo AND PERMISSAO = 0";
+					$sql = "SELECT usuario.CODIGO, usuario.EMAIL, usuario.EMAIL_SECUNDARIO FROM usuario WHERE escola_CODIGO = $escola_codigo AND PERMISSAO = 0";
 				}else if($destinatario == 5){
 					$aluno_codigo = $_POST['aluno_select'];
-					$sql = "SELECT usuario.CODIGO FROM usuario WHERE escola_CODIGO = $escola_codigo AND CODIGO = $aluno_codigo";
+					$sql = "SELECT usuario.CODIGO, usuario.EMAIL, usuario.EMAIL_SECUNDARIO FROM usuario WHERE escola_CODIGO = $escola_codigo AND CODIGO = $aluno_codigo";
 				}else if($destinatario == 6){
 					$turma_codigo = $_POST['turma_select'];
-					$sql = "SELECT usuario.CODIGO FROM usuario INNER JOIN usuario_has_turma ON usuario.CODIGO = usuario_has_turma.usuario_CODIGO INNER JOIN turma ON turma.CODIGO = usuario_has_turma.turma_CODIGO WHERE usuario.escola_CODIGO = $escola_codigo AND turma.CODIGO = $turma_codigo AND usuario_has_turma.STATUS = 1 AND (usuario.PERMISSAO = 0 OR usuario.PERMISSAO = 1)";
+					$sql = "SELECT usuario.CODIGO, usuario.EMAIL, usuario.EMAIL_SECUNDARIO FROM usuario INNER JOIN usuario_has_turma ON usuario.CODIGO = usuario_has_turma.usuario_CODIGO INNER JOIN turma ON turma.CODIGO = usuario_has_turma.turma_CODIGO WHERE usuario.escola_CODIGO = $escola_codigo AND turma.CODIGO = $turma_codigo AND usuario_has_turma.STATUS = 1 AND (usuario.PERMISSAO = 0 OR usuario.PERMISSAO = 1)";
 				}
 				$query = mysqli_query($con, $sql);
 				while ($row = mysqli_fetch_array($query)) {
