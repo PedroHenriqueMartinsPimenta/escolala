@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="keywords" content="escola online, sistema escola, sistema educacional, sistema para escolas, escolala, escola virtual, sua escola conectada, minha escola, minha escola online, escola online, escola virtual, escola digital, sistema escolar gratis, sistema escolar gratuito">
-    <meta name="description" content="O Escolalá é o sistema escolar gratuito mais completo do Brasil! com recursos imagináveis para a sua escola">
+    <meta name="description" content="O Escolalá é o sistema escolar gratuito mais completo do Brasil! com recursos Inimagináveis para a sua escola">
     <meta name="google-site-verification" content="utSO2cyYEpUxP4YMXayqFIfuZnEOeOlfQ7hrK0NxNqg" />
     
     <link rel="profile" href="http://gmpg.org/xfn/11">

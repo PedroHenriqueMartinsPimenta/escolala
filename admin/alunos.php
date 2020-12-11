@@ -136,6 +136,7 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 	      <th scope="col">Cidade</th>
 	      <th scope="col">Estado</th>
 	      <th scope="col">Turma</th>
+	      <th scope="col">Boletim</th>
 	      <th scope="col">Transitar</th>
 	      <th scope="col">Editar</th>
 	      <th scope="col">Remover</th>
@@ -174,6 +175,7 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 				      <td><?php echo $row['CIDADE']?></td>
 				      <td><?php echo $row['ESTADO']?></td>
 				      <td><?php echo $row['TURMA']?></td>
+				      <td><a href="boletim.php?codigo=<?php echo $row['CODIGO']?>">Ver</a></td>
 				      <td><a href="transitar_turma.php?codigo=<?php echo $row['CODIGO']?>" class="btn" title="Transistar o aluno para uma nova turma">Transitar</a></td>
 				      <td><a href="editar_aluno.php?codigo=<?php echo $row['CODIGO']?>" class="btn btn-primary">Editar</a></td>
 				      <td>
