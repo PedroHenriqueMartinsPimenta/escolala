@@ -17,13 +17,14 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 0) {
 	      <th scope="col">Nome</th>	  
 	      <th scope="col">Peso da avaliação na média</th>
 	      <th scope="col">Prazo de entrega</th>
+	      <th scope="col">Período</th>
 	      <th scope="col">Acessar / Nota</th>
 	    </tr>
 	  </thead>
 	  <tbody>
 	  	<?php
-	  		$data = date('Y-m-d');
-	  		$sql = "SELECT avaliacao.CODIGO, avaliacao.NOME, avaliacao.PESO, avaliacao.TIPO, periodo.FIM, materia.NOME AS MATERIA FROM avaliacao INNER JOIN periodo ON avaliacao.periodo_CODIGO = periodo.CODIGO INNER JOIN materia ON materia.CODIGO = avaliacao.materia_CODIGO INNER JOIN turma ON materia.turma_CODIGO = turma.CODIGO INNER JOIN usuario_has_turma ON usuario_has_turma.turma_CODIGO = turma.CODIGO WHERE usuario_has_turma.usuario_CODIGO = $user_codigo AND periodo.FIM >= '$data' AND (avaliacao.ATIVA = 1 OR avaliacao.TIPO = 0) GROUP BY avaliacao.CODIGO ORDER BY CONCAT(avaliacao.TIPO, avaliacao.CODIGO) DESC";
+	  		$data = date('Y');
+	  		$sql = "SELECT avaliacao.CODIGO, avaliacao.NOME, avaliacao.PESO, avaliacao.TIPO, periodo.FIM, periodo.NOME AS PERIODO, materia.NOME AS MATERIA FROM avaliacao INNER JOIN periodo ON avaliacao.periodo_CODIGO = periodo.CODIGO INNER JOIN materia ON materia.CODIGO = avaliacao.materia_CODIGO INNER JOIN turma ON materia.turma_CODIGO = turma.CODIGO INNER JOIN usuario_has_turma ON usuario_has_turma.turma_CODIGO = turma.CODIGO WHERE usuario_has_turma.usuario_CODIGO = $user_codigo AND YEAR(periodo.FIM) = $data AND (avaliacao.ATIVA = 1 OR avaliacao.TIPO = 0) GROUP BY avaliacao.CODIGO ORDER BY CONCAT(avaliacao.TIPO, avaliacao.CODIGO) DESC";
 	  		$query = mysqli_query($con, $sql);
 	  		echo mysqli_error($con);
 	  		if (mysqli_num_rows($query) > 0) {
@@ -35,6 +36,7 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 0) {
 				      <td><?php echo $row['NOME']?></td>
 				      <td><?php echo $row['PESO']?></td>
 				      <td><?php echo $row['FIM']?></td>
+				      <td><?php echo $row['PERIODO']?></td>
 				      <td>
 				      	<?php
 				      		if ($row['TIPO'] == 1) {
