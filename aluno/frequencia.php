@@ -1,8 +1,8 @@
 <?php
+	$page = "Frequência";
 	include_once('../content/header.php');
 	include_once('../controller/conexao.php');
 if (isset($_SESSION['email']) && $_SESSION['permissao'] == 0) {
-	$page = "Frequência";
 	$user_codigo = $_SESSION['codigo'];
 	$escola_codigo = $_SESSION['escola_codigo'];
 	include_once('../content/banner.php');

@@ -1,8 +1,8 @@
 <?php
+	$page = "Administradores";
 	include_once('../content/header.php');
 	include_once('../controller/conexao.php');
 if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
-	$page = "Administradores";
 	$escola_codigo = $_SESSION['escola_codigo'];
 	$codigo = $_GET['codigo'];
 	$sql = "SELECT * FROM usuario WHERE CODIGO = $codigo";

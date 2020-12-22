@@ -1,4 +1,5 @@
 <?php
+	$page = "Avaliação";
 	include_once('../content/header.php');
 	include_once('../controller/conexao.php');
 if (isset($_SESSION['email']) && $_SESSION['permissao'] == 0) {

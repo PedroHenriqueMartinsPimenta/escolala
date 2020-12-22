@@ -1,8 +1,8 @@
 <?php
+	$page = "Mural";
 	include_once('../content/header.php');
 	include_once('../controller/conexao.php');
 	if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
-		$page = "Mural";
 		$codigo = $_SESSION['codigo'];
 		include_once('../content/banner.php');
 	?>

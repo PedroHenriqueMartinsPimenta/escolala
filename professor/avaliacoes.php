@@ -1,8 +1,8 @@
 <?php
+	$page = "Avaliações";
 	include_once('../content/header.php');
 	include_once('../controller/conexao.php');
 if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
-	$page = "Avaliações";
 	$escola_codigo = $_SESSION['escola_codigo'];
 	$user_codigo = $_SESSION['codigo'];
 	$data = date('Y-m-d');

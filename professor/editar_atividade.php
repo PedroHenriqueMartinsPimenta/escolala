@@ -1,8 +1,8 @@
 <?php
+	$page = "Atividades";
 	include_once('../content/header.php');
 	include_once('../controller/conexao.php');
 if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
-	$page = "Atividades";
 	$codigo = $_GET['codigo'];
 	$sql = "SELECT * FROM atividade WHERE CODIGO = $codigo";
 	$query = mysqli_query($con, $sql);

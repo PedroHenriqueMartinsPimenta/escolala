@@ -1,6 +1,6 @@
 <?php
-	include_once('content/header.php');
 	$page = "Esqueci minha senha";
+	include_once('content/header.php');
 	include_once('content/banner.php');
 	if (isset($_GET['id'])) {
 		$id = $_GET['id'];

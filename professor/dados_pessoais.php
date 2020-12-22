@@ -1,8 +1,8 @@
 <?php
+	$page = "Dados Pessoais";
 	include_once('../content/header.php');
 	include_once('../controller/conexao.php');
 if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
-	$page = "Dados Pessoais";
 	include_once('../content/banner.php');
 
 ?>

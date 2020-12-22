@@ -1,7 +1,7 @@
 <?php
+	$page = "Cadastre-se";
 	include_once('../content/header.php');
 	include_once('../controller/conexao.php');
-	$page = "Cadastre-se";
 	$codigo = $_GET['codigo'];
 	$sql = "SELECT * FROM usuario WHERE CODIGO = $codigo";
 	$query = mysqli_query($con, $sql);

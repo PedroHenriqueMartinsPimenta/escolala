@@ -1,6 +1,12 @@
 <?php
     include_once('config.php');
     include_once('nav.php');
+
+    if (!isset($page)) {
+        $page = $site_name;
+        $site_name = "Sistema de gestão escolar profissional";
+
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR" class="has-offscreen"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -59,7 +65,7 @@
             exports.mesmerizeDomReady = domReady;
         })(window, document);
     </script>
-    <title><?php echo $site_name?> - <?php echo $frase?></title>
+    <title><?php echo $page?>: <?php echo $site_name?></title>
 <link rel="stylesheet" type="text/css" href="<?php echo $url?>page/bootstrap.min.css">
 <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
 <link rel="dns-prefetch" href="http://s.w.org/">

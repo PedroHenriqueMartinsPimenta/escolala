@@ -1,6 +1,6 @@
 <?php
-	include_once('content/header.php');
 	$page = "Cadastre-se";
+	include_once('content/header.php');
 	include_once('content/banner.php');
 
 ?>

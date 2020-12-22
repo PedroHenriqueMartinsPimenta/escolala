@@ -1,8 +1,8 @@
 <?php
+	$page = "Matérias";
 	include_once('../content/header.php');
 	include_once('../controller/conexao.php');
 if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
-	$page = "Matérias";
 	include_once('../content/banner.php');
 	$codigo = $_GET['codigo'];
 	$sql = "SELECT * FROM materia WHERE CODIGO = $codigo";

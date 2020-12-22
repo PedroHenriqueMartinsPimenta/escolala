@@ -1,8 +1,8 @@
 <?php
+	$page = "Turmas";
 	include_once('../content/header.php');
 	include_once('../controller/conexao.php');
 if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
-	$page = "Turmas";
 	$escola_codigo = $_SESSION['escola_codigo'];
 	$user_codigo = $_SESSION['codigo'];
 	include_once('../content/banner.php');

@@ -1,6 +1,6 @@
 <?php
-	include_once('content/header.php');
 	$page = "Login";
+	include_once('content/header.php');
 	include_once('content/banner.php');
 ?>
 	<div class="row" id="login">

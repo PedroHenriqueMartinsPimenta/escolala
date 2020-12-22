@@ -1,8 +1,8 @@
 <?php
+	$page = "Períodos escolares";
 	include_once('../content/header.php');
 	include_once('../controller/conexao.php');
 if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
-	$page = "Períodos escolares";
 	$codigo = $_GET['codigo'];
 	$sql = "SELECT * FROM periodo WHERE CODIGO = $codigo";
 	$query = mysqli_query($con, $sql);

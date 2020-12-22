@@ -1,8 +1,8 @@
 <?php
+	$page = "Avaliações";
 	include_once('../content/header.php');
 	include_once('../controller/conexao.php');
 if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
-	$page = "Avaliações";
 	$codigo = $_GET['codigo'];
 	$sql = "SELECT * FROM avaliacao WHERE CODIGO = $codigo";
 	$query = mysqli_query($con, $sql);

@@ -1,8 +1,8 @@
 <?php
+	$page = "Alunos";
 	include_once('../content/header.php');
 	include_once('../controller/conexao.php');
 if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
-	$page = "Alunos";
 	$escola_codigo = $_SESSION['escola_codigo'];
 	$codigo = $_GET['codigo'];
 	$sql = "SELECT usuario.NOME, turma.NOME AS TURMA, usuario.CODIGO AS USUARIO_CODIGO, turma.CODIGO AS TURMA_CODIGO, usuario_has_turma.STATUS FROM usuario INNER JOIN usuario_has_turma ON usuario.CODIGO = usuario_has_turma.usuario_CODIGO INNER JOIN turma ON turma.CODIGO = usuario_has_turma.turma_CODIGO WHERE usuario.CODIGO = $codigo AND usuario_has_turma.STATUS = 1";
