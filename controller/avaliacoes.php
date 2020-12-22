@@ -53,10 +53,12 @@
 							$dados = $array[$i];
 							$link = "";
 							if ($dados['arquivo']['name'] != "") {
-								$dir = "../upload/" . basename($dados['arquivo']['name']);
+								$momento = date('Y_m_d_h_i_s');
+								$pasta = mkdir('../upload/' . $momento, 0777, true);
+								$dir = "../upload/" . $momento . "/" . basename($dados['arquivo']['name']);
 								$result = move_uploaded_file($dados['arquivo']['tmp_name'], $dir);
 								if ($result) {
-									$link = $url . "upload/" . basename($dados['arquivo']['name']);
+									$link = $url . "upload/" . $momento . "/" . basename($dados['arquivo']['name']);
 								}else{
 									$_SESSION['error'] = "Erro no envio dos arquivos!";
 									header('location: ../professor/avaliacoes.php');
@@ -211,10 +213,12 @@
 						$correta = $dados['correta'];
 						$link = "";
 						if ($dados['arquivo']['name'] != "") {
-							$dir = "../upload/" . basename($dados['arquivo']['name']);
+							$momento = date('Y_m_d_h_i_s');
+							$pasta = mkdir('../upload/' . $momento, 0777, true);
+							$dir = "../upload/" . $momento . "/" . basename($dados['arquivo']['name']);
 							$result = move_uploaded_file($dados['arquivo']['tmp_name'], $dir);
 							if ($result) {
-								$link = $url . "upload/" . basename($dados['arquivo']['name']);
+								$link = $url . "upload/" . $momento . "/" . basename($dados['arquivo']['name']);
 							}else{
 								$_SESSION['error'] = "Erro no envio dos arquivos!";
 								header('location: ../professor/avaliacoes.php');

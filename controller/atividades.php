@@ -10,10 +10,12 @@
 			$inicio = date('Y-m-d h:i:s');
 			$arquivo = $_FILES['arquivo'];
 			$turma = $_POST['turma'];
-			$dir = "../upload/" . basename($arquivo['name']);
+			$momento = date('Y_m_d_h_i_s');
+			$pasta = mkdir('../upload/' . $momento, 0777, true);
+			$dir = "../upload/" . $momento . "/" . basename($arquivo['name']);
 			$upload = move_uploaded_file($arquivo['tmp_name'] , $dir);
 			if ($upload) {
-				$src = $url . "upload/" . basename($arquivo['name']);
+				$src = $url . "upload/" . $momento . "/" . basename($arquivo['name']);
 				$user_codigo = $_SESSION['codigo'];
 				$sql = "INSERT INTO atividade (SRC, INICIO, FIM, usuario_CODIGO, turma_CODIGO) VALUES('$src', '$inicio', '$fim', $user_codigo, $turma)";
 				$query = mysqli_query($con, $sql);
@@ -47,10 +49,12 @@
 			$turma = $_POST['turma'];
 			$name = $arquivo['name'];
 			if ($name != "") {
-				$dir = "../upload/" . basename($arquivo['name']);
+				$momento = date('Y_m_d_h_i_s');
+				$pasta = mkdir('../upload/' . $momento, 0777, true);
+				$dir = "../upload/" . $momento . "/" . basename($arquivo['name']);
 				$upload = move_uploaded_file($arquivo['tmp_name'] , $dir);
 				if ($upload) {
-					$link = $url . "upload/" . basename($arquivo['name']);
+					$link = $url . "upload/" . $momento . "/" . basename($arquivo['name']);
 					$sql = "UPDATE atividade SET FIM = '$fim', SRC = '$link', turma_CODIGO = $turma WHERE CODIGO = $codigo";
 					$query = mysqli_query($con, $sql);
 					if ($query) {

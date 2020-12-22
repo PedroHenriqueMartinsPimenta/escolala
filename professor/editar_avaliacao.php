@@ -11,7 +11,7 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
 	$query = mysqli_query($con, $sql);
 	$row_dados = mysqli_fetch_array($query);
 	$data = date('Y-m-d');
-	$sql = "SELECT * FROM periodo WHERE escola_CODIGO = $escola_codigo AND INICIO <= '$data' AND FIM >= '$data'";
+	$sql = "SELECT * FROM periodo WHERE escola_CODIGO = $escola_codigo AND INICIO <= '$data'";
 	$query_periodo = mysqli_query($con, $sql);
 	include_once('../content/banner.php');
 

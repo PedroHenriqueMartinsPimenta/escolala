@@ -5,7 +5,6 @@
 if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
 	$user_codigo = $_SESSION['codigo'];
 	include_once('../content/banner.php');
-
 ?>		
 <h3>Atividades</h3>
 <div class="row"> 
