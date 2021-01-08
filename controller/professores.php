@@ -101,7 +101,41 @@
 			}
 		}
 	}else{
-		$_SESSION['error'] = "Permissão necessaria!";
-		header('location:../');
+		if (isset($_GET['id'])) {
+			$id = $_GET['id'];
+			if ($id == 4){
+				//Adicionar professor pelo link
+				$nome = $_POST['nome'];
+				$sobrenome = $_POST['sobrenome'];
+				$email = $_POST['email'];
+				$email_secundario = $_POST['email_secundario'];
+				$rua = $_POST['rua'];
+				$complemento = $_POST['complemento'];
+				$bairro = $_POST['bairro'];
+				$cidade = $_POST['cidade'];
+				$estado = $_POST['estado'];
+				$senha = md5($_POST['senha']);
+				$escola_codigo = $_GET['escola_codigo'];
+				$permissao = 1;
+
+				$sql = "INSERT INTO usuario (NOME, SOBRENOME, EMAIL, EMAIL_SECUNDARIO, RUA, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, SENHA, PERMISSAO, escola_CODIGO) VALUES ('$nome', '$sobrenome', '$email', '$email_secundario', '$rua', '$complemento', '$bairro', '$cidade', '$estado', '$senha', $permissao, $escola_codigo)";
+				$query = mysqli_query($con, $sql);
+				unset($_SESSION['email']);
+				if ($query) {
+					$_SESSION['success'] = "Efetue o login";
+					header('location: ../login.php');
+				}else{
+					$_SESSION['error'] = mysqli_error($con);
+					?>
+					<script type="text/javascript">
+						history.go(-1);
+					</script>
+					<?php
+				}
+			}
+		}else{
+			$_SESSION['error'] = "Permissão necessaria!";
+			header('location:../');
+		}
 	}
 ?>

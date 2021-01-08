@@ -1,7 +1,15 @@
 <?php
 	include_once('content/header.php');
 	include_once('content/banner.php');
+	include_once('controller/conexao.php');
 ?>
+<style type="text/css">
+	#estado{
+		font-size: 50px;
+		font-weight: bolder;
+		text-align: center;
+	}
+</style>
 <div class="row">
 	<div class="col-12">
 		<h3>Alguns de nossos recursos!</h3>
@@ -28,6 +36,27 @@
 		<img src="images/hora.png" width="40%">
 		<h4 style="font-weight: bolder; padding: 2px">Horário escolar</h4>
 	</div>
+</div>
+
+<div class="row mt-4">
+	<div class="col-12">
+		Alguns estados que nós já atuamos:
+	</div>
+</div>
+
+<div class="row mt-2">
+	<?php
+		$sql = "SELECT ESTADO FROM escola GROUP BY ESTADO ORDER BY ESTADO ASC LIMIT 8";
+		$query = mysqli_query($con, $sql);
+		echo mysqli_error($con);
+		while ($row = mysqli_fetch_array($query)) {
+			?>
+			<div class="col-md-3 card mt-2" id="estado">
+				<div class="card-body"><?php echo strtoupper($row['ESTADO'])?></div>
+			</div>
+			<?php
+		}
+	?>
 </div>
 
 <div class="row mt-4">

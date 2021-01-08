@@ -55,6 +55,7 @@
 		}else{
 			?>
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>">Página inicial</a></li>
+				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>blog/">Blog</a></li>
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>login.php">Login</a></li>
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>cadastro.php">Cadastre-se</a></li>
 			<?php
@@ -106,6 +107,7 @@
 		}else{
 			?>
 					<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>">Página inicial</a></li>
+					<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>blog/">Blog</a></li>
 					<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>login.php">Login</a></li>
 					<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>cadastro.php">Cadastre-se</a></li>
 			<?php

@@ -111,8 +111,92 @@
 				$_SESSION['error'] = mysqli_error($con);
 				header('location: ../admin/alunos.php');					
 			}
+		}else if($id == 5){
+			// Matricula pelo link
+			$nome = $_POST['nome'];
+			$sobrenome = $_POST['sobrenome'];
+			$email = $_POST['email'];
+			$email_secundario = $_POST['email_secundario'];
+			$rua = $_POST['rua'];
+			$complemento = $_POST['complemento'];
+			$bairro = $_POST['bairro'];
+			$cidade = $_POST['cidade'];
+			$estado = $_POST['estado'];
+			$senha = md5($_POST['senha']);
+			$turma = $_POST['turma'];
+			$escola_codigo = $_GET['escola_codigo'];
+			$sql = "INSERT INTO usuario (NOME, SOBRENOME, EMAIL, EMAIL_SECUNDARIO, RUA, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, SENHA, escola_CODIGO) VALUES ('$nome', '$sobrenome', '$email', '$email_secundario', '$rua', '$complemento', '$bairro', '$cidade', '$estado', '$senha', $escola_codigo)";
+			$query = mysqli_query($con, $sql);
+			if ($query) {
+				$sql = "SELECT * FROM usuario WHERE EMAIL = '$email'";
+				$query = mysqli_query($con, $sql);
+				if ($query) {
+					$row = mysqli_fetch_array($query);
+					$user_codigo = $row['CODIGO'];
+					$sql = "INSERT INTO usuario_has_turma (usuario_CODIGO, turma_CODIGO) VALUES($user_codigo, $turma)";
+					$query = mysqli_query($con, $sql);
+					if ($query) {
+						$_SESSION['success'] = "Aluno cadastrado com sucesso!";
+						header('location: ../login.php');
+					}else{
+						$_SESSION['error'] = mysqli_error($con);
+						header('location: ../login.php');						
+					}
+				}else{
+					$_SESSION['error'] = mysqli_error($con);
+					header('location: ../login.php');					
+				}
+			}else{
+				$_SESSION['error'] = mysqli_error($con);
+				header('location: ../login.php');
+			}
 		}
 	}else{
-		$_SESSION['error'] = "Você não tem permissão para acessar o sistema!";
+		if (isset($_GET['id'])) {
+			$id = $_GET['id'];
+			if ($id == 5) {
+				// Matricula pelo link
+				$nome = $_POST['nome'];
+			$sobrenome = $_POST['sobrenome'];
+			$email = $_POST['email'];
+			$email_secundario = $_POST['email_secundario'];
+			$rua = $_POST['rua'];
+			$complemento = $_POST['complemento'];
+			$bairro = $_POST['bairro'];
+			$cidade = $_POST['cidade'];
+			$estado = $_POST['estado'];
+			$senha = md5($_POST['senha']);
+			$turma = $_POST['turma'];
+			$escola_codigo = $_GET['escola_codigo'];
+			$sql = "INSERT INTO usuario (NOME, SOBRENOME, EMAIL, EMAIL_SECUNDARIO, RUA, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, SENHA, escola_CODIGO) VALUES ('$nome', '$sobrenome', '$email', '$email_secundario', '$rua', '$complemento', '$bairro', '$cidade', '$estado', '$senha', $escola_codigo)";
+			$query = mysqli_query($con, $sql);
+			if ($query) {
+				$sql = "SELECT * FROM usuario WHERE EMAIL = '$email'";
+				$query = mysqli_query($con, $sql);
+				if ($query) {
+					$row = mysqli_fetch_array($query);
+					$user_codigo = $row['CODIGO'];
+					$sql = "INSERT INTO usuario_has_turma (usuario_CODIGO, turma_CODIGO) VALUES($user_codigo, $turma)";
+					$query = mysqli_query($con, $sql);
+					if ($query) {
+						$_SESSION['success'] = "Aluno cadastrado com sucesso!";
+						header('location: ../login.php');
+					}else{
+						$_SESSION['error'] = mysqli_error($con);
+						header('location: ../login.php');						
+					}
+				}else{
+					$_SESSION['error'] = mysqli_error($con);
+					header('location: ../login.php');					
+				}
+			}else{
+				$_SESSION['error'] = mysqli_error($con);
+				header('location: ../login.php');
+			}
+			}
+		}else{
+			$_SESSION['error'] = "Você não tem permissão para acessar o sistema!";
+			header('location:../');
+		}
 	}
 ?>

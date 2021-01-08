@@ -24,6 +24,26 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 	<div class="col-md-4"> 
 		<button class="btn btn-primary col-12 mb-2" onclick="action()" id="button">Adicionar nova</button>
 	</div>
+	<?php
+		$codigo = $_SESSION['codigo'];
+		$sql = "SELECT * FROM link WHERE usuario_CODIGO = $codigo AND PARA LIKE '%matricula%'";
+		$query = mysqli_query($con, $sql);
+		if (mysqli_num_rows($query) == 0) {
+			?>
+				<div class="col-md-6">
+					<a href="../controller/link.php?id=1&&type=2" class="btn btn-outline-primary">Gerar link</a>
+				</div>
+			<?php
+		}else{
+			$row_link = mysqli_fetch_array($query);
+			?>
+			<div style="display: inline-block;">
+				<a href="<?php echo $row_link['PARA']?>" target="_blank"><?php echo $row_link['PARA']?></a>
+				<a href="../controller/link.php?id=2&&codigo=<?php echo $row_link['CODIGO']?>" class="btn btn-secondary">X</a>
+			</div>
+			<?php
+		}
+	?>
 </div>
 <div class="row" style="display: none" id="model"> 
 	<div class="col-12"> 
