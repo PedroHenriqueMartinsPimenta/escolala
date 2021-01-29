@@ -46,7 +46,7 @@
 
 <div class="row mt-2">
 	<?php
-		$sql = "SELECT ESTADO FROM escola GROUP BY ESTADO ORDER BY ESTADO ASC LIMIT 8";
+		$sql = "SELECT ESTADO FROM escola GROUP BY ESTADO LIMIT 8";
 		$query = mysqli_query($con, $sql);
 		echo mysqli_error($con);
 		while ($row = mysqli_fetch_array($query)) {

@@ -96,7 +96,8 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
 	  </thead>
 	  <tbody>
 	  	<?php
-	  		$sql = "SELECT avaliacao.CODIGO, avaliacao.NOME, avaliacao.PESO, avaliacao.ATIVA, avaliacao.TIPO, periodo.NOME AS PERIODO, materia.NOME AS MATERIA, turma.NOME AS TURMA FROM avaliacao INNER JOIN periodo ON avaliacao.periodo_CODIGO = periodo.CODIGO INNER JOIN materia ON avaliacao.materia_CODIGO = materia.CODIGO INNER JOIN turma ON materia.turma_CODIGO = turma.CODIGO WHERE periodo.escola_CODIGO = $escola_codigo ORDER BY avaliacao.CODIGO DESC";
+	  		$data = date('Y-m-d');
+	  		$sql = "SELECT avaliacao.CODIGO, avaliacao.NOME, avaliacao.PESO, avaliacao.ATIVA, avaliacao.TIPO, periodo.NOME AS PERIODO, materia.NOME AS MATERIA, turma.NOME AS TURMA FROM avaliacao INNER JOIN periodo ON avaliacao.periodo_CODIGO = periodo.CODIGO INNER JOIN materia ON avaliacao.materia_CODIGO = materia.CODIGO INNER JOIN turma ON materia.turma_CODIGO = turma.CODIGO WHERE periodo.escola_CODIGO = $escola_codigo AND materia.usuario_CODIGO = $user_codigo AND periodo.FIM >= '$data' ORDER BY avaliacao.CODIGO DESC";
 	  		$query = mysqli_query($con, $sql);
 	  		echo mysqli_error($con);
 	  		if (mysqli_num_rows($query) > 0) {

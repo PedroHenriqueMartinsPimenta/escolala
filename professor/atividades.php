@@ -52,8 +52,9 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
 	  </thead>
 	  <tbody>
 	  	<?php
+	  		$data = date('Y-m-d');
 	  		$escola_codigo = $_SESSION['escola_codigo'];
-	  		$sql = "SELECT atividade.CODIGO, atividade.INICIO, atividade.FIM, atividade.SRC, turma.NOME FROM atividade INNER JOIN turma ON atividade.turma_CODIGO = turma.CODIGO WHERE usuario_CODIGO = $user_codigo GROUP BY atividade.CODIGO ORDER BY INICIO DESC";
+	  		$sql = "SELECT atividade.CODIGO, atividade.INICIO, atividade.FIM, atividade.SRC, turma.NOME FROM atividade INNER JOIN turma ON atividade.turma_CODIGO = turma.CODIGO WHERE usuario_CODIGO = $user_codigo AND (atividade.FIM >= '$data' OR atividade.FIM = '0000-00-00') GROUP BY atividade.CODIGO ORDER BY INICIO DESC";
 	  		$query = mysqli_query($con, $sql);
 	  		if (mysqli_num_rows($query) > 0) {
 	  			while ($row = mysqli_fetch_array($query)) {

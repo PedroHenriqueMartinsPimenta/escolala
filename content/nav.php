@@ -46,7 +46,8 @@
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>admin/turmas.php">Turmas</a></li>
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>admin/aulas.php">Aulas</a></li>
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>admin/avisos.php">Avisos</a></li>
-				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>admin/dados_pessoais.php">Dados pessoais</a></li>					
+				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>admin/dados_pessoais.php">Dados pessoais</a></li>	
+				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>admin/init.php">Primeiros passos</a></li>					
 				<?php
 			}
 			?>
@@ -98,7 +99,8 @@
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>admin/turmas.php">Turmas</a></li>
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>admin/aulas.php">Aulas</a></li>
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>admin/avisos.php">Avisos</a></li>
-				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>admin/dados_pessoais.php">Dados pessoais</a></li>				
+				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>admin/dados_pessoais.php">Dados pessoais</a></li>	
+				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>admin/init.php">Primeiros passos</a></li>				
 				<?php
 			}
 			?>

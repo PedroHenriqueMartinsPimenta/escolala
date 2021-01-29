@@ -27,15 +27,15 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 	<?php
 		$codigo = $_SESSION['codigo'];
 		$sql = "SELECT * FROM link WHERE usuario_CODIGO = $codigo AND PARA LIKE '%matricula%'";
-		$query = mysqli_query($con, $sql);
-		if (mysqli_num_rows($query) == 0) {
+		$query_link = mysqli_query($con, $sql);
+		if (mysqli_num_rows($query_link) == 0) {
 			?>
 				<div class="col-md-6">
 					<a href="../controller/link.php?id=1&&type=2" class="btn btn-outline-primary">Gerar link</a>
 				</div>
 			<?php
 		}else{
-			$row_link = mysqli_fetch_array($query);
+			$row_link = mysqli_fetch_array($query_link);
 			?>
 			<div style="display: inline-block;">
 				<a href="<?php echo $row_link['PARA']?>" target="_blank"><?php echo $row_link['PARA']?></a>
