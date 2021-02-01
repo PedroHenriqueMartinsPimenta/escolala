@@ -21,41 +21,7 @@
 		</div>
 	</div>		
 
-	<div class="row">
-		<div class="col-12">
-			<div class="card">
-				<div class="card-body">
-					<h3>Conta demo:</h3>
-					<ul>
-						<li>
-							Admin:
-							<ul>
-								<li>E-mail: teste@teste.com</li>
-								<li>Senha: 123456</li>
-							</ul>
-						</li>
-
-
-						<li>
-							Professor:
-							<ul>
-								<li>E-mail: professor@teste.com</li>
-								<li>Senha: 123456</li>
-							</ul>
-						</li>
-
-						<li>
-							Aluno:
-							<ul>
-								<li>E-mail: aluno@teste.com</li>
-								<li>Senha: 123456</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>		
+		
 <?php
 	include_once('content/footer.php');
 ?>
