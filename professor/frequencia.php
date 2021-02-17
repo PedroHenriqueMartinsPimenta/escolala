@@ -37,8 +37,8 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
 			<label>Período: <span id="required">*</span></label>
 			<select name="periodo" id="periodo" required class="form-control">
 				<?php
-					$data = date('Y-m-d');
-					$sql = "SELECT * FROM periodo WHERE escola_CODIGO = $escola_codigo AND FIM >= '$data'";
+					$data_periodo = date('Y-m-d');
+					$sql = "SELECT * FROM periodo WHERE escola_CODIGO = $escola_codigo AND FIM >= '$data_periodo'";
 					$query = mysqli_query($con, $sql);
 					while ($row = mysqli_fetch_array($query)) {
 						?>

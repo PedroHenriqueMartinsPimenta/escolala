@@ -21,6 +21,19 @@
 		}
 	</style>
 	<h3>Mural</h3>
+	<div class="row mb-5">
+		<div class="col-12">
+			<div class="card simples">
+				<div class="card-header" style="font-weight: bolder;">
+					Precisamos de você!
+				</div>
+				<div class="card-body">
+					Olá <?php echo $_SESSION['nome']?>, como você já sabe, nós somos uma plataforma gratuita, mas temos contas a pagar :( e queríamos sua ajuda para mantemos esse padrão de qualidade. Criamos uma <a href="http://vaka.me/1817596" target="_blank">Vakinha</a> para podermos pagar os serviços de hospedagem, se você poder contribuir ficaremos gratos! <br>
+					OBS.: Essa mensagem somente aparece para professores e administradores.
+				</div>
+			</div>
+		</div>
+	</div>
 	<?php
 		$sql = "SELECT * FROM aviso INNER JOIN aviso_has_usuario ON aviso.CODIGO = aviso_has_usuario.aviso_CODIGO INNER JOIN usuario ON aviso.usuario_CODIGO = usuario.CODIGO WHERE aviso_has_usuario.usuario_CODIGO = $codigo OR aviso.usuario_CODIGO = $codigo GROUP BY aviso.CODIGO ORDER BY aviso.DATA DESC";
 		$query = mysqli_query($con, $sql);
