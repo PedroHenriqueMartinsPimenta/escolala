@@ -4,6 +4,7 @@
 	include_once('../controller/conexao.php');
 if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 	include_once('../content/banner.php');
+	$escola_codigo = $_SESSION['escola_codigo'];
 
 ?>
 	<h3>Dados Pessoais</h3>
@@ -85,32 +86,20 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 			</form>
 		</div>
 	</div>
-	<div class="row mt-2">
-		<div class="col-12 card">
-			<div class="card-header">
-				<h3>Site de minha escola</h3>
-			</div>
-			<div class="card-body">
-					<?php
-						$escola_codigo = $_SESSION['escola_codigo'];
-						$sql = "SELECT * FROM site WHERE escola_CODIGO = $escola_codigo";
-						$query = mysqli_query($con, $sql);
-						if (mysqli_num_rows($query) > 0) {
-							$row = mysqli_fetch_array($query);
-							$link = $row['LINK'];
-							?>
-								<a href="<?php echo $link?>" target="_blank"><?php echo $link?></a>
-							<?php
-						}else{
-							?>
-								<p id="required">A criação de um site leva alguns minutos</p>
-								<a href="../controller/create_site.php">Criar um site profissional!</a>
-							<?php
-						}
-					?>
+	
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-header">
+					Meu site
+				</div>
+				<div class="card-body">
+					<a href="../minha_escola.php?escola=<?php echo $escola_codigo?>"><?php echo $url?>minha_escola.php?escola=<?php echo $escola_codigo?></a>
+				</div>
 			</div>
 		</div>
 	</div>
+
 	<div class="row mt-2">
 		<div class="col-md-11 card">
 			<form class="card-body" method="post" action="../controller/dados_pessoais.php?id=3&&codigo=<?php echo $_SESSION['escola_codigo']?>">
