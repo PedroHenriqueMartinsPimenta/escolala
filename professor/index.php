@@ -28,7 +28,7 @@
 					Precisamos de você!
 				</div>
 				<div class="card-body">
-					Olá <?php echo $_SESSION['nome']?>, como você já sabe, nós somos uma plataforma gratuita, mas temos contas a pagar :( e queríamos sua ajuda para mantemos esse padrão de qualidade. Criamos uma <a href="http://vaka.me/1817596" target="_blank">Vakinha</a> para podermos pagar os serviços de hospedagem, se você poder contribuir ficaremos gratos! <br>
+					Olá <?php echo $_SESSION['nome']?>, como você já sabe, nós somos uma plataforma gratuita, mas temos contas a pagar :( e queríamos sua ajuda para mantemos esse padrão de qualidade. Criamos uma <a href="https://mpago.la/31caaub" target="_blank">https://mpago.la/31caaub</a> para podermos pagar os serviços de hospedagem, se você poder contribuir ficaremos gratos! <br>
 					OBS.: Essa mensagem somente aparece para professores e administradores.
 				</div>
 			</div>

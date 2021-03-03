@@ -87,16 +87,14 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 		</div>
 	</div>
 	
-	<div class="row">
-		<div class="col-12">
-			<div class="card">
+	<div class="row mt-2">
+		<div class="col-md-11 card">
 				<div class="card-header">
-					Meu site
+					<h3>Meu site</h3>
 				</div>
 				<div class="card-body">
 					<a href="../minha_escola.php?escola=<?php echo $escola_codigo?>"><?php echo $url?>minha_escola.php?escola=<?php echo $escola_codigo?></a>
 				</div>
-			</div>
 		</div>
 	</div>
 
