@@ -301,6 +301,58 @@
 			$sql = "UPDATE avaliacao_has_usuario SET NOTA = $nota WHERE CODIGO = $codigo";
 			$query = mysqli_query($con, $sql);
 			echo json_encode($query);
+		}else if($id == 5){
+			//Deletar 
+			$codigo = $_GET['codigo'];
+			$sql = "SELECT TIPO FROM avaliacao WHERE CODIGO = $codigo";
+			$query = mysqli_query($con, $sql);
+			$row = mysqli_fetch_array($query);
+			if ($row['TIPO'] == 1) {
+				//Prova online
+				$sql = "SELECT * FROM questoes WHERE avaliacao_CODIGO = $codigo";
+				$query = mysqli_query($con , $sql);
+				while ($row = mysqli_fetch_array($query)) {
+					$questoes_codigo = $row['CODIGO'];
+					$sql = "DELETE FROM alternativa WHERE questoes_CODIGO = $questoes_codigo";
+					$query2 = mysqli_query($con, $sql);
+				}
+				$sql = "DELETE FROM questoes WHERE avaliacao_CODIGO = $codigo";
+				$query = mysqli_query($con, $sql);
+				$sql = "DELETE FROM avaliacao_has_usuario WHERE avaliacao_CODIGO = $codigo";
+				$query = mysqli_query($con, $sql);
+				if ($query) {
+					$sql = "DELETE FROM avaliacao WHERE CODIGO = $codigo";
+					$query = mysqli_query($con, $sql);
+					if ($query) {
+						$_SESSION['success'] = "Avaliação deletada com sucesso!";
+						header('location: ../professor/avaliacoes.php');
+					}else{
+						$_SESSION['error'] = mysqli_error($con);
+						header('location: ../professor/avaliacoes.php');
+					}
+				}else{
+					$_SESSION['error'] = mysqli_error($con);
+					header('location: ../professor/avaliacoes.php');
+				}
+			}else{
+				//Prova comum
+				$sql = "DELETE FROM avaliacao_has_usuario WHERE avaliacao_CODIGO = $codigo";
+				$query = mysqli_query($con, $sql);
+				if ($query) {
+					$sql = "DELETE FROM avaliacao WHERE CODIGO = $codigo";
+					$query = mysqli_query($con, $sql);
+					if ($query) {
+						$_SESSION['success'] = "Avaliação removida com sucesso";
+						header('location: ../professor/avaliacoes.php');
+					}else{
+						$_SESSION['error'] = mysqli_error($con);
+						header('location: ../professor/avaliacoes.php');
+					}
+				}else{
+					$_SESSION['error'] = mysqli_error($con);
+					header('location: ../professor/avaliacoes.php');
+				}
+			}
 		}
 	}else{
 		$_SESSION['error'] = "Você não tem permissão para acessar o sistema!";

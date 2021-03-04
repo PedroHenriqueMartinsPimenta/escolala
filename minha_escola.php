@@ -75,7 +75,7 @@ Skip to content</a>
                         <li>
                   			<i class="fa fa-phone"></i>&nbsp;&nbsp;<?php echo $row['TELEFONE']?>                                                    </li>
 <li class="lastemail">
-        					<i class="fa fa-map-marker"></i>&nbsp;&nbsp;<?php echo $row['RUA']?> <?php if($row['COMPLEMENTO'] != ''){echo '-' . $row['COMPLEMENTO'] . '-';}else{echo ',';}?>  <?php echo $row['BAIRRO']?>, <?php echo $row['CIDADE']?> - <?php echo strtoupper($row['ESTADO'])?>
+        					<i class="fa fa-map-marker"></i>&nbsp;&nbsp;<?php echo $row['RUA']?><?php if($row['COMPLEMENTO'] != ''){echo '-' . $row['COMPLEMENTO'] . '- ';}else{echo ', ';}?><?php echo $row['BAIRRO']?>, <?php echo $row['CIDADE']?>-<?php echo strtoupper($row['ESTADO'])?>
                                                         
                         </li>
                     </ul>
@@ -176,7 +176,7 @@ Skip to content</a>
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-02a29de elementor-widget elementor-widget-google_maps" data-id="02a29de" data-element_type="widget" data-widget_type="google_maps.default">
 				<div class="elementor-widget-container">
-			<div class="elementor-custom-embed"><iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<?php echo $row['RUA']?> <?php if($row['COMPLEMENTO'] != ''){echo '-' . $row['COMPLEMENTO'] . '-';}else{echo ',';}?>  <?php echo $row['BAIRRO']?>, <?php echo $row['CIDADE']?> - <?php echo strtoupper($row['ESTADO'])?>&t=m&z=10&output=embed&iwloc=near" title="<?php echo $row['RUA']?> <?php if($row['COMPLEMENTO'] != ''){echo '-' . $row['COMPLEMENTO'] . '-';}else{echo ',';}?>  <?php echo $row['BAIRRO']?>, <?php echo $row['CIDADE']?> - <?php echo strtoupper($row['ESTADO'])?>" aria-label="London Eye, London, United Kingdom"></iframe></div>		</div>
+			<div class="elementor-custom-embed"><iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<?php echo $row['RUA']?><?php if($row['COMPLEMENTO'] != ''){echo '-' . $row['COMPLEMENTO'] . '- ';}else{echo ', ';}?><?php echo $row['BAIRRO']?>, <?php echo $row['CIDADE']?>-<?php echo strtoupper($row['ESTADO'])?>&t=m&z=10&output=embed&iwloc=near" title="<?php echo $row['RUA']?><?php if($row['COMPLEMENTO'] != ''){echo '-' . $row['COMPLEMENTO'] . '- ';}else{echo ', ';}?><?php echo $row['BAIRRO']?>, <?php echo $row['CIDADE']?>-<?php echo strtoupper($row['ESTADO'])?>" aria-label="London Eye, London, United Kingdom"></iframe></div>		</div>
 				</div>
 					</div>
 		</div>

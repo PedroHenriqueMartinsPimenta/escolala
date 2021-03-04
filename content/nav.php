@@ -20,7 +20,6 @@
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>aluno/atividades.php">Atividades</a></li>
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>aluno/boletim.php">Boletim</a></li>
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>aluno/frequencia.php">Frequência</a></li>
-				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>aluno/avisos.php">Avisos</a></li>
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>aluno/dados_pessoais.php">Dados pessoais</a></li>	
 				<?php
 			}else if($_SESSION['permissao'] == 1){
@@ -73,7 +72,6 @@
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>aluno/atividades.php">Atividades</a></li>
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>aluno/boletim.php">Boletim</a></li>
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>aluno/frequencia.php">Frequência</a></li>
-				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>aluno/avisos.php">Avisos</a></li>
 				<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39"><a href="<?php echo $url?>aluno/dados_pessoais.php">Dados pessoais</a></li>		
 				<?php
 			}else if($_SESSION['permissao'] == 1){

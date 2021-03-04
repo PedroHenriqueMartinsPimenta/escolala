@@ -92,6 +92,7 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
 	      <th scope="col">Notas</th>
 	      <th scope="col">Editar</th>
 	      <th scope="col">Ativar / Desativar</th>
+	      <th scope="col">Remover</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -146,6 +147,7 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
 				      		}
 				      	?>
 					  </td>
+					  <td><button class="btn btn-outline-danger" onclick="remover_avaliacao(<?php echo $row['CODIGO']?>)">Remover</button></td>
 				    </tr>
 	  				<?php
 	  			}
@@ -211,6 +213,12 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
 	}
 	function ativar(codigo){
 		window.location.href = '../controller/avaliacoes.php?id=2&&codigo=' + codigo + "&&ativo=1";
+	}
+	function remover_avaliacao(codigo){
+		var confirm = window.confirm("Isto apagarar permanentemente esta avaliação e tudo vinculado a ela!");
+		if (confirm) {
+			window.location.href = '../controller/avaliacoes.php?id=5&&codigo=' + codigo ;
+		}
 	}
 </script>
 <?php
