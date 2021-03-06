@@ -46,7 +46,7 @@
 
 <div class="row mt-2">
 	<?php
-		$sql = "SELECT ESTADO FROM escola GROUP BY ESTADO LIMIT 8";
+		$sql = "SELECT ESTADO FROM escola GROUP BY ESTADO";
 		$query = mysqli_query($con, $sql);
 		echo mysqli_error($con);
 		while ($row = mysqli_fetch_array($query)) {
@@ -69,7 +69,7 @@
 	<div class="col-md-6 mt-2">
 		<div class="card">
 			<div class="card-body">
-				Nós somos um website que foi desenvolvido para ajudar o sistema educacional, público ou privado, nestes tempos em que é necessario tornamos cada dia mais digitais!
+				Nós somos um website que foi desenvolvido para ajudar o sistema educacional, público ou privado, nestes tempos em que é necessário tornamos cada dia mais digitais!
 			</div>
 		</div>
 	</div>
@@ -77,7 +77,7 @@
 	<div class="col-md-6 mt-2">
 		<div class="card">
 			<div class="card-body">
-				Nós vinhemos oferecer um sistema de administração escolar <b>gratuito</b> para que vocês possam integra-se ao avanço da tecnologia! venha <b>dominar</b> <?php echo date('Y')?> junto conosco!
+				Nós oferecemos um sistema de administração escolar <b>gratuito</b> para que vocês possam integra-se ao avanço da tecnologia! venha <b>dominar</b> <?php echo date('Y')?> junto conosco!
 			</div>
 		</div>
 	</div>
@@ -95,7 +95,8 @@
 			<div class="card-body">
 				Você já deve ter parado para pensar como as coisas avançaram de 1994 até <?php echo date("Y")?>, né?<br> 
 				Da geração de 1994 até a de <?php echo date("Y")?> é tida como a geração da tecnologia, em que já nascem sendo integrados, familiarizados, com esta tecnologia! <br> 
-				E a intituição de ensino com seu papel primordial de formação de indivíduos, deve demostrar a importância da tecnologia em <?php echo date('Y')?> adiante, como sendo o dominio das tecnologias algo primordial!
+				E a instituição de ensino com seu papel primordial de formação de indivíduos, deve demostrar a importância da tecnologia em <?php echo date('Y')?> adiante, como sendo o domínio das tecnologias algo primordial!
+
 			</div>
 		</div>
 	</div>

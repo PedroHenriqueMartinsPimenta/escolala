@@ -19,21 +19,27 @@
 		.card-header{
 			background-color: transparent;
 		}
+		#button_alert{
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+			box-shadow: 2px 2px 20px rgba(50, 240, 50, 1);
+			transition: 0.25s;
+			animation: animacao_btn 1s infinite alternate;
+			padding: 15px;
+			z-index: 9999;
+		}
+		@keyframes animacao_btn{
+			0%{
+				box-shadow: 2px 2px 20px rgba(50, 240, 50, 1);
+			}
+			100%{
+				box-shadow: 2px 2px 20px rgba(240, 50, 50, 1);
+			}
+		}
 	</style>
 	<h3>Mural</h3>
-	<div class="row mb-5">
-		<div class="col-12">
-			<div class="card simples">
-				<div class="card-header" style="font-weight: bolder;">
-					Precisamos de você!
-				</div>
-				<div class="card-body">
-					Olá <?php echo $_SESSION['nome']?>, como você já sabe, nós somos uma plataforma gratuita, mas temos contas a pagar :( e queríamos sua ajuda para mantemos esse padrão de qualidade. Criamos uma <a href="https://mpago.la/31caaub" target="_blank">https://mpago.la/31caaub</a> para podermos pagar os serviços de hospedagem, se você poder contribuir ficaremos gratos! <br>
-					OBS.: Essa mensagem somente aparece para professores e administradores.
-				</div>
-			</div>
-		</div>
-	</div>
+	<a href="https://mpago.la/31caaub" target="_blank" title="Nós da Escolalá temos muitas contas a pagar :( e precisamos de sua ajuda para mantermos o padrão de qualidade" id="button_alert" class="btn btn-success">doe R$ 4,99</a>
 	<?php
 		$sql = "SELECT * FROM aviso INNER JOIN aviso_has_usuario ON aviso.CODIGO = aviso_has_usuario.aviso_CODIGO INNER JOIN usuario ON aviso.usuario_CODIGO = usuario.CODIGO WHERE aviso_has_usuario.usuario_CODIGO = $codigo OR aviso.usuario_CODIGO = $codigo GROUP BY aviso.CODIGO ORDER BY aviso.DATA DESC";
 		$query = mysqli_query($con, $sql);
@@ -105,7 +111,8 @@
 				</div>
 			<?php
 		}
-	?>	
+	?>
+	<div style="height: 100px"></div>	
 	<?php
 	}else{
 		$page = "404";
