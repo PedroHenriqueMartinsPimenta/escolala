@@ -4,7 +4,7 @@
 	$email = $_POST['email'];
 	$senha = md5($_POST['senha']);
 
-	$sql = "SELECT usuario.EMAIL, usuario.CODIGO, usuario.NOME, usuario.SOBRENOME, usuario.RUA, usuario.COMPLEMENTO, usuario.BAIRRO, usuario.CIDADE, usuario.ESTADO, usuario.EMAIL_SECUNDARIO, usuario.escola_CODIGO, usuario.PERMISSAO, usuario.SENHA, usuario.ATIVO, escola.PRIVILEGIO FROM usuario INNER JOIN escola ON usuario.escola_CODIGO = escola.CODIGO WHERE usuario.EMAIL = '$email' AND usuario.ATIVO = 1";
+	$sql = "SELECT usuario.EMAIL, usuario.CODIGO, usuario.NOME, usuario.SOBRENOME, usuario.RUA, usuario.COMPLEMENTO, usuario.BAIRRO, usuario.CIDADE, usuario.ESTADO, usuario.EMAIL_SECUNDARIO, usuario.escola_CODIGO, usuario.PERMISSAO, usuario.SENHA, usuario.ATIVO, usuario.PESQUISA, escola.PRIVILEGIO FROM usuario INNER JOIN escola ON usuario.escola_CODIGO = escola.CODIGO WHERE usuario.EMAIL = '$email' AND usuario.ATIVO = 1";
 	$query = mysqli_query($con, $sql);
 	if ($query) {
 		if (mysqli_num_rows($query) > 0) {
@@ -30,12 +30,16 @@
 
 				$_SESSION['permissao'] = $row['PERMISSAO'];
 				$_SESSION['privilegio'] = $row['PRIVILEGIO'];
-				if ($row['PERMISSAO'] == 0) {
-					header('location:../aluno/');
-				}else if ($row['PERMISSAO'] == 1) {
-					header('location:../professor/');
-				}else if ($row['PERMISSAO'] == 2) {
-					header('location:../admin/');
+				if($row['PESQUISA'] == 0){
+					header('location: ../pesquisa.php');
+				}else{
+					if ($row['PERMISSAO'] == 0) {
+						header('location:../aluno/');
+					}else if ($row['PERMISSAO'] == 1) {
+						header('location:../professor/');
+					}else if ($row['PERMISSAO'] == 2) {
+						header('location:../admin/');
+					}
 				}
 			}else{
 				$_SESSION['error'] = "Senha incorreta!";

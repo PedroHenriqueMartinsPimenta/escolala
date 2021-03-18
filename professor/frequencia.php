@@ -77,6 +77,11 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
 		</form>
 	</div>
 </div>
+<div class="row">
+	<div class="col-12"> 
+		<a href="documento_frequencia.php?data=<?php echo $data?>&&turma=<?php echo $turma?>" class="btn btn-secondary">Gerar documento do mês selecionado</a>
+	</div>	
+</div>			
 <h3>Alunos:</h3>
 <?php
 	$sql = "SELECT * FROM usuario_has_turma INNER JOIN usuario ON usuario.CODIGO = usuario_has_turma.usuario_CODIGO WHERE usuario_has_turma.turma_CODIGO = $turma AND usuario_has_turma.STATUS = 1 AND usuario.PERMISSAO = 0";
@@ -86,6 +91,7 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
 			$c = $row['CODIGO'];
 			$sql = "SELECT * FROM frequencia WHERE usuario_CODIGO = $c AND aula_CODIGO = $aula AND periodo_CODIGO = $periodo AND DATA = '$data'";
 			$query_frequencia = mysqli_query($con, $sql);
+			echo mysqli_error($con);
 			if (mysqli_num_rows($query_frequencia) > 0) {
 				?>
 					<div class="row mt-3" style="padding: 20px">
