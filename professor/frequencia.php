@@ -84,7 +84,7 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 1) {
 </div>			
 <h3>Alunos:</h3>
 <?php
-	$sql = "SELECT * FROM usuario_has_turma INNER JOIN usuario ON usuario.CODIGO = usuario_has_turma.usuario_CODIGO WHERE usuario_has_turma.turma_CODIGO = $turma AND usuario_has_turma.STATUS = 1 AND usuario.PERMISSAO = 0";
+	$sql = "SELECT * FROM usuario_has_turma INNER JOIN usuario ON usuario.CODIGO = usuario_has_turma.usuario_CODIGO WHERE usuario_has_turma.turma_CODIGO = $turma AND usuario_has_turma.STATUS = 1 AND usuario.PERMISSAO = 0 AND usuario.ATIVO = 1";
 	$query = mysqli_query($con, $sql);
 	if (mysqli_num_rows($query) > 0) {
 		while ($row = mysqli_fetch_array($query)) {

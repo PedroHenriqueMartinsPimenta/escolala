@@ -37,8 +37,20 @@
 				box-shadow: 2px 2px 20px rgba(240, 50, 50, 1);
 			}
 		}
+		#img_prop{
+			border-radius: 5px;
+			transition: 0.25s;
+		}
+		#img_prop:hover{
+			opacity: 0.9;
+		}
 	</style>
 	<h3>Mural</h3>
+	<div class="row mb-5">
+		<div class="col-12">
+			<a href="https://bit.ly/pratica-psicanalitica" target="_blank"><img src="../images/curso-banner.png" width="100%" id="img_prop"></a>
+		</div>
+	</div>
 	<a href="https://mpago.la/31caaub" target="_blank" title="Nós da Escolalá temos muitas contas a pagar :( e precisamos de sua ajuda para mantermos o padrão de qualidade" id="button_alert" class="btn btn-success">doe R$ 4,99</a>
 	<?php
 		$sql = "SELECT * FROM aviso INNER JOIN aviso_has_usuario ON aviso.CODIGO = aviso_has_usuario.aviso_CODIGO INNER JOIN usuario ON aviso.usuario_CODIGO = usuario.CODIGO WHERE aviso_has_usuario.usuario_CODIGO = $codigo OR aviso.usuario_CODIGO = $codigo GROUP BY aviso.CODIGO ORDER BY aviso.DATA DESC";

@@ -159,6 +159,7 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 	      <th scope="col">Boletim</th>
 	      <th scope="col">Transitar</th>
 	      <th scope="col">Editar</th>
+	      <th scope="col">Ativar / Desativar</th>
 	      <th scope="col">Remover</th>
 	    </tr>
 	  </thead>
@@ -173,51 +174,56 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 	  		$query = mysqli_query($con, $sql);
 	  		if (mysqli_num_rows($query) > 0) {
 	  			while ($row = mysqli_fetch_array($query)) {
-	  				if ($row['ATIVO'] == 1) {
-	  					?>
-	  						<tr>
+	  				if($row['ATIVO'] != 2){
+		  				if ($row['ATIVO'] == 1) {
+		  					?>
+		  						<tr>
 
-	  					<?php
-	  				}else{
-	  					?>
-							<tr style="opacity: 0.5">
-	  					<?php
-	  				}
-	  				?>
-				      <th scope="row"><?php echo $row['CODIGO']?></th>
-				      <td><?php echo $row['NOME']?></td>
-				      <td><?php echo $row['SOBRENOME']?></td>
-				      <td><a href="mailto:<?php echo $row['EMAIL']?>"><?php echo $row['EMAIL']?></a></td>
-				      <td><a href="mailto:<?php echo $row['EMAIL_SECUNDARIO']?>"><?php echo $row['EMAIL_SECUNDARIO']?></a></td>
-				      <td><?php echo $row['RUA']?></td>
-				      <td><?php echo $row['COMPLEMENTO']?></td>
-				      <td><?php echo $row['BAIRRO']?></td>
-				      <td><?php echo $row['CIDADE']?></td>
-				      <td><?php echo $row['ESTADO']?></td>
-				      <td><?php echo $row['TURMA']?></td>
-				      <td><a href="boletim.php?codigo=<?php echo $row['CODIGO']?>">Ver</a></td>
-				      <td><a href="transitar_turma.php?codigo=<?php echo $row['CODIGO']?>" class="btn" title="Transistar o aluno para uma nova turma">Transitar</a></td>
-				      <td><a href="editar_aluno.php?codigo=<?php echo $row['CODIGO']?>" class="btn btn-primary">Editar</a></td>
-				      <td>
-				      	<?php
-				      		if ($row['ATIVO'] == 1) {
-				      			?>
-				      				<button class="btn btn-outline-danger" onclick="desativar(<?php echo $row['CODIGO']?>)">
-							      		Desativar
-								    </button>
-				      			<?php
-				      		}else{
-				      			?>
-				      				<button class="btn btn-outline-success" onclick="ativar(<?php echo $row['CODIGO']?>)">
-							      		Ativar
-								    </button>
-				      			<?php
-				      		}
-				      	?>
-					  </td>
-				    </tr>
-	  				<?php
-	  			}
+		  					<?php
+		  				}else{
+		  					?>
+								<tr style="opacity: 0.5">
+		  					<?php
+		  				}
+		  				?>
+					      <th scope="row"><?php echo $row['CODIGO']?></th>
+					      <td><?php echo $row['NOME']?></td>
+					      <td><?php echo $row['SOBRENOME']?></td>
+					      <td><a href="mailto:<?php echo $row['EMAIL']?>"><?php echo $row['EMAIL']?></a></td>
+					      <td><a href="mailto:<?php echo $row['EMAIL_SECUNDARIO']?>"><?php echo $row['EMAIL_SECUNDARIO']?></a></td>
+					      <td><?php echo $row['RUA']?></td>
+					      <td><?php echo $row['COMPLEMENTO']?></td>
+					      <td><?php echo $row['BAIRRO']?></td>
+					      <td><?php echo $row['CIDADE']?></td>
+					      <td><?php echo $row['ESTADO']?></td>
+					      <td><?php echo $row['TURMA']?></td>
+					      <td><a href="boletim.php?codigo=<?php echo $row['CODIGO']?>">Ver</a></td>
+					      <td><a href="transitar_turma.php?codigo=<?php echo $row['CODIGO']?>" class="btn" title="Transistar o aluno para uma nova turma">Transitar</a></td>
+					      <td><a href="editar_aluno.php?codigo=<?php echo $row['CODIGO']?>" class="btn btn-primary">Editar</a></td>
+					      <td>
+					      	<?php
+					      		if ($row['ATIVO'] == 1) {
+					      			?>
+					      				<button class="btn btn-outline-danger" onclick="desativar(<?php echo $row['CODIGO']?>)">
+								      		Desativar
+									    </button>
+					      			<?php
+					      		}else{
+					      			?>
+					      				<button class="btn btn-outline-success" onclick="ativar(<?php echo $row['CODIGO']?>)">
+								      		Ativar
+									    </button>
+					      			<?php
+					      		}
+					      	?>
+
+						  <td><button class="btn btn-danger" onclick='remover(<?php echo json_encode($row['EMAIL'])?>, <?php echo $row['CODIGO']?>)'>Remover</button></td>
+					    </tr>
+						  </td>
+					    </tr>
+		  				<?php
+		  			}
+		  		}
 	  		}else {
 	  			?>
 			    <tr>
@@ -239,6 +245,12 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 	}
 	function ativar(codigo){
 		window.location.href = '../controller/alunos.php?id=2&&codigo=' + codigo + '&&ativo=1'		
+	}
+	function remover(email, codigo){
+		var confirm = window.confirm("Realmente deseja remover permanentemente este usuário?");
+		if (confirm) {
+			window.location.href = '../controller/alunos.php?id=6&&codigo=' + codigo + '&&email='+email;
+		}
 	}
 </script>
 <?php

@@ -113,6 +113,7 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 	      <th scope="col">Estado</th>
 	      <th scope="col">Editar</th>
 	      <th scope="col">Ativar / desativar</th>
+	      <th scope="col">Remover</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -126,48 +127,51 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 	  		$query = mysqli_query($con, $sql);
 	  		if (mysqli_num_rows($query) > 0) {
 	  			while ($row = mysqli_fetch_array($query)) {
-	  				if ($row['ATIVO'] == 0) {
-	  					?>
+	  				if($row['ATIVO'] != 2){
+		  				if ($row['ATIVO'] == 0) {
+		  					?>
 
-	  				<tr style="opacity: 0.5">
-	  					<?php
-	  				}else{
-	  				?>
-	  				<tr>
-	  				<?php
-	  				 }
-	  				?>
-				      <th scope="row"><?php echo $row['CODIGO']?></th>
-				      <td><?php echo $row['NOME']?></td>
-				      <td><?php echo $row['SOBRENOME']?></td>
-				      <td><?php echo $row['EMAIL']?></td>
-				      <td><?php echo $row['EMAIL_SECUNDARIO']?></td>
-				      <td><?php echo $row['RUA']?></td>
-				      <td><?php echo $row['COMPLEMENTO']?></td>
-				      <td><?php echo $row['BAIRRO']?></td>
-				      <td><?php echo $row['CIDADE']?></td>
-				      <td><?php echo $row['ESTADO']?></td>
-				      <td><a href="editar_admin.php?codigo=<?php echo $row['CODIGO']?>" class="btn">Editar</a></td>
-				      <td>
-				      	<?php
-				      		if ($row['ATIVO'] == 0) {
-				      			?>
-				      				<button class="btn btn-outline-success" onclick="ativar(<?php echo $row['CODIGO']?>)">
-							      		Ativar
-								    </button>
-				      			<?php
-				      		}else{
-				      			?>
-				      				<button class="btn btn-outline-danger" onclick="desativar(<?php echo $row['CODIGO']?>)">
-							      		Desativar
-								    </button>
-				      			<?php
-				      		}
-				      	?>
-					  </td>
-				    </tr>
-	  				<?php
-	  			}
+		  				<tr style="opacity: 0.5">
+		  					<?php
+		  				}else{
+		  				?>
+		  				<tr>
+		  				<?php
+		  				 }
+		  				?>
+					      <th scope="row"><?php echo $row['CODIGO']?></th>
+					      <td><?php echo $row['NOME']?></td>
+					      <td><?php echo $row['SOBRENOME']?></td>
+					      <td><?php echo $row['EMAIL']?></td>
+					      <td><?php echo $row['EMAIL_SECUNDARIO']?></td>
+					      <td><?php echo $row['RUA']?></td>
+					      <td><?php echo $row['COMPLEMENTO']?></td>
+					      <td><?php echo $row['BAIRRO']?></td>
+					      <td><?php echo $row['CIDADE']?></td>
+					      <td><?php echo $row['ESTADO']?></td>
+					      <td><a href="editar_admin.php?codigo=<?php echo $row['CODIGO']?>" class="btn">Editar</a></td>
+					      <td>
+					      	<?php
+					      		if ($row['ATIVO'] == 0) {
+					      			?>
+					      				<button class="btn btn-outline-success" onclick="ativar(<?php echo $row['CODIGO']?>)">
+								      		Ativar
+									    </button>
+					      			<?php
+					      		}else{
+					      			?>
+					      				<button class="btn btn-outline-danger" onclick="desativar(<?php echo $row['CODIGO']?>)">
+								      		Desativar
+									    </button>
+					      			<?php
+					      		}
+					      	?>
+						  </td>
+						  <td><button class="btn btn-danger" onclick='remover(<?php echo json_encode($row['EMAIL'])?>, <?php echo $row['CODIGO']?>)'>Remover</button></td>
+					    </tr>
+		  				<?php
+		  			}
+		  		}
 	  		}else {
 	  			?>
 			    <tr>
@@ -190,6 +194,12 @@ if (isset($_SESSION['email']) && $_SESSION['permissao'] == 2) {
 
 	function ativar(codigo){
 			window.location.href = '../controller/admins.php?id=2&&codigo=' + codigo + '&&ativo=1';
+	}
+	function remover(email, codigo){
+		var confirm = window.confirm("Realmente deseja remover permanentemente este usuário?");
+		if (confirm) {
+			window.location.href = '../controller/admins.php?id=4&&codigo=' + codigo + '&&email='+email;
+		}
 	}
 </script>
 <?php

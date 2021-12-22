@@ -150,6 +150,19 @@
 				$_SESSION['error'] = mysqli_error($con);
 				header('location: ../login.php');
 			}
+		}else if ($id == 6){
+			//Remover aluno 
+			$codigo = $_GET['codigo'];
+			$email =  substr($_GET['email'], 0, 45) . random_int(0, 9999999);
+			$sql = "UPDATE usuario SET EMAIL = '$email', ATIVO = 2 WHERE CODIGO = $codigo";
+			$query = mysqli_query($con, $sql);
+			if ($query) {
+				$_SESSION['success'] = "Usuário deletado!";
+				header('location: ../admin/alunos.php');
+			}else{
+				$_SESSION['error'] = mysqli_error($con);
+				header('location: ../admin/alunos.php');
+			}
 		}
 	}else{
 		if (isset($_GET['id'])) {

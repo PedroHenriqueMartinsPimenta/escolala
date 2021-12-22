@@ -127,7 +127,7 @@
 					$query = mysqli_query($con, $sql);
 					$row = mysqli_fetch_array($query);
 					$avaliacao_CODIGO = $row['CODIGO'];
-					$sql = "SELECT usuario.CODIGO FROM usuario INNER JOIN usuario_has_turma ON usuario.CODIGO = usuario_has_turma.usuario_CODIGO WHERE usuario.PERMISSAO = 0 AND usuario.escola_CODIGO = $escola_codigo AND usuario_has_turma.turma_CODIGO = $turma_CODIGO AND usuario_has_turma.STATUS = 1";
+					$sql = "SELECT usuario.CODIGO FROM usuario INNER JOIN usuario_has_turma ON usuario.CODIGO = usuario_has_turma.usuario_CODIGO WHERE usuario.PERMISSAO = 0 AND usuario.escola_CODIGO = $escola_codigo AND usuario_has_turma.turma_CODIGO = $turma_CODIGO AND usuario_has_turma.STATUS = 1 AND usuario.ATIVO = 1";
 					$query = mysqli_query($con, $sql);
 					$m = "";
 					while ($row = mysqli_fetch_array($query)) {
