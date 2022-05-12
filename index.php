@@ -39,6 +39,31 @@
 	</div>
 </div>
 
+<div class="row card">
+	<div class="col-12" style="text-align: center; font-weight: bolder;">
+		<h2>
+			<?php
+				$sql = "SELECT COUNT(*) AS TOTAL FROM escola ";
+				$query = mysqli_query($con, $sql);
+				$row = mysqli_fetch_array($query);
+				print($row['TOTAL']);
+			?>
+			Escolas em todo o Brasil
+		</h2>
+		<hr>
+		<h4>
+			Mais de
+			<?php
+				$sql = "SELECT COUNT(*) AS TOTAL FROM usuario ";
+				$query = mysqli_query($con, $sql);
+				$row = mysqli_fetch_array($query);
+				print($row['TOTAL']);
+			?>
+			usuários conectados
+		</h4>
+	</div>
+</div>
+
 <div class="row mt-4">
 	<div class="col-12">
 		Alguns estados que nós já atuamos:
