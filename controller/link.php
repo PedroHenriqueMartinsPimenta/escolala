@@ -13,7 +13,7 @@
 			$type = $_GET['type'];
 			$codigo = $_SESSION['codigo'];
 			if ($type == 1) {
-				$redirect = $url . "admin/add_professor.php?codigo=" . $codigo;
+				$redirect = $url . "admin/add_professor.php?codigo=" . base64_encode($codigo);
 				$sql = "INSERT INTO link (PARA, usuario_CODIGO) VALUES('$redirect', $codigo)";
 				$query = mysqli_query($con, $sql);
 				if ($query) {
@@ -24,7 +24,7 @@
 					header('location: ../admin/professores.php');
 				}
 			}else if ($type == 2){
-				$redirect = $url . "admin/matricula.php?codigo=" . $codigo;
+				$redirect = $url . "admin/matricula.php?codigo=" . base64_encode($codigo);
 				$sql = "INSERT INTO link (PARA, usuario_CODIGO) VALUES('$redirect', $codigo)";
 				$query = mysqli_query($con, $sql);
 				if ($query) {

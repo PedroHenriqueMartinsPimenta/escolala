@@ -124,7 +124,7 @@
 			$estado = $_POST['estado'];
 			$senha = md5($_POST['senha']);
 			$turma = $_POST['turma'];
-			$escola_codigo = $_GET['escola_codigo'];
+			$escola_codigo = base64_decode($_GET['escola_codigo']);
 			$sql = "INSERT INTO usuario (NOME, SOBRENOME, EMAIL, EMAIL_SECUNDARIO, RUA, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, SENHA, escola_CODIGO) VALUES ('$nome', '$sobrenome', '$email', '$email_secundario', '$rua', '$complemento', '$bairro', '$cidade', '$estado', '$senha', $escola_codigo)";
 			$query = mysqli_query($con, $sql);
 			if ($query) {

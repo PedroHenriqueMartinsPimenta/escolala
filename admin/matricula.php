@@ -2,7 +2,7 @@
 	$page = "Matricule-se";
 	include_once('../content/header.php');
 	include_once('../controller/conexao.php');
-	$codigo = $_GET['codigo'];
+	$codigo = base64_decode($_GET['codigo']);
 	$sql = "SELECT * FROM usuario WHERE CODIGO = $codigo";
 	$query = mysqli_query($con, $sql);
 	$row = mysqli_fetch_array($query);
@@ -13,7 +13,7 @@
 <h3>Matricule-se</h3>
 <div class="row"> 
 	<div class="col-12"> 
-		<form action="../controller/alunos.php?id=5&&escola_codigo=<?php echo $row['escola_CODIGO']?>" method="post"> 
+		<form action="../controller/alunos.php?id=5&&escola_codigo=<?php echo base64_encode($row['escola_CODIGO'])?>" method="post"> 
 			<div class="row"> 
 				<div class="col-md-6"> 
 					<label>Nome: <span id="required">*</span></label>

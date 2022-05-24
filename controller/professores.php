@@ -82,7 +82,7 @@
 			$cidade = $_POST['cidade'];
 			$estado = $_POST['estado'];
 			$senha = md5($_POST['senha']);
-			$escola_codigo = $_GET['escola_codigo'];
+			$escola_codigo = base64_decode($_GET['escola_codigo']);
 			$permissao = 1;
 
 			$sql = "INSERT INTO usuario (NOME, SOBRENOME, EMAIL, EMAIL_SECUNDARIO, RUA, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, SENHA, PERMISSAO, escola_CODIGO) VALUES ('$nome', '$sobrenome', '$email', '$email_secundario', '$rua', '$complemento', '$bairro', '$cidade', '$estado', '$senha', $permissao, $escola_codigo)";
